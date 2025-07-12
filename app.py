@@ -17,28 +17,6 @@ credentials={
   "universe_domain": "googleapis.com"}
 import gspread
 import pandas as pd
-gc = gspread.service_account_from_dict(credentials)
-
-
-wks2 = gc.open("Test789").get_worksheet(3)
-list_of_lists = wks2.get_all_values()
-df5 = pd.DataFrame(list_of_lists)
-
-new_header = df5.iloc[0]  # берем первую строку как заголовок
-df5 = df5[1:]
-# переименовываем столбцы
-df5.rename(columns=new_header, inplace=True) 
-df5=df5[['col1','col2']]
-
-df5=df5[df5['col2']=='pin']
-znach=int(df5['col1'])
-if znach==1:
-    print(1)
-else:
-    print(2)
-
-
-import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -47,7 +25,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
 import requests
-from selenium.webdriver.firefox.options import Options
+
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
 def pin_tod():
@@ -476,7 +454,7 @@ def pin_tod():
   
   b123=time.time()
   delta1=b123-a123
-  name_fun='Pinnacle'
+  name_fun='Pinnacle_tod'
   data=[]
   data.append([date_new53,date_new533,delta1,name_fun])
 
@@ -489,8 +467,18 @@ def pin_tod():
   print(df,df2)
 
 
-  wer = gc.open("Test789").sheet1
-  wer.update([df.columns.values.tolist()]+df.values.tolist())
+
+  wks2 = gc.open("Test789").sheet1
+  list_of_lists = wks2.get_all_values()
+  df5 = pd.DataFrame(list_of_lists)
+  new_header = df5.iloc[0]
+  df5 = df5[1:]
+  df5.rename(columns=new_header, inplace=True)
+  df7=pd.concat([df5,df2])
+  
+  wks2.update([df7.columns.values.tolist()]+df7.values.tolist())
+
+
   
   wks2 = gc.open("Test789").get_worksheet(1)
   list_of_lists = wks2.get_all_values()
@@ -499,6 +487,7 @@ def pin_tod():
   df5 = df5[1:]
   df5.rename(columns=new_header, inplace=True)
   df7=pd.concat([df5,df2])
+  
   wks2.update([df7.columns.values.tolist()]+df7.values.tolist())
 
 gc = gspread.service_account_from_dict(credentials)

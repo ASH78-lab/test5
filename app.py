@@ -58,7 +58,7 @@ stealth(driver,
 driver.get("https://www.whoscored.com/")
 #####################################################################################################
 
-time.sleep(15)
+time.sleep(25)
 
 a=driver.find_element(By.TAG_NAME,'body')
 print(a.text)

@@ -32,7 +32,7 @@ chrome_options.add_argument(f'--proxy-server={PROXY}')
 # Initialize driver with options
 driver = webdriver.Chrome(options=chrome_options)
 driver.set_window_size(1800, 1000) 
-driver.get("https://www.whoscored.com/")
+driver.get("https://2ip.ru/")
 #####################################################################################################
 
 time.sleep(15)

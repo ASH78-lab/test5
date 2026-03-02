@@ -13,7 +13,6 @@ from selenium.webdriver.chrome.options import Options
 
 from selenium_stealth import stealth
 
-
 #chrome_options = webdriver.ChromeOptions()
 chrome_options = Options()
 chrome_options.add_argument("--no-sandbox")

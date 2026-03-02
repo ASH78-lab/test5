@@ -75,7 +75,7 @@ element = driver.find_element(By.TAG_NAME,'body')
 element.send_keys(Keys.ESCAPE)
 time.sleep(1)
 
-
+data2=[]
 link_preview=driver.find_elements(By.CLASS_NAME,'Match-module_previewBtn__mYHIm')
 asd=[]
 

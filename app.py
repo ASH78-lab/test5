@@ -59,7 +59,7 @@ driver.get("https://www.whoscored.com/")
 time.sleep(25)
 
 a=driver.find_element(By.TAG_NAME,'body')
-print(a.text)
+#print(a.text)
 #########################################################################################################
 try:
 
@@ -149,13 +149,6 @@ for i in asd5:
         data2.append([name1,count1,name2,count2])
 driver.quit()
 
-header = ['1','2','3'] 
-df = pd.DataFrame(data, columns=header)
-header2 = ['1','2','3','4'] 
-df4 = pd.DataFrame(data2, columns=header2)
-df3 = pd.concat([
-      df,
-      df2
-  ])
-print(df3)
+
+print(data,data2)
 

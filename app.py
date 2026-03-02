@@ -11,6 +11,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+from selenium_stealth import stealth
+
 
 #chrome_options = webdriver.ChromeOptions()
 chrome_options = Options()
@@ -24,6 +26,25 @@ chrome_options.add_argument("--disable-gpu")
 ###########################################################################################
 
 
+
+
+
+
+chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+chrome_options.add_experimental_option('useAutomationExtension', False)
+
+
+
+stealth(driver,
+        languages=["en-US", "en"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+        )
+
+
 # Define proxy (ip:port)
 PROXY = "195.158.8.123:3128" 
 
@@ -32,7 +53,7 @@ chrome_options.add_argument(f'--proxy-server={PROXY}')
 # Initialize driver with options
 driver = webdriver.Chrome(options=chrome_options)
 driver.set_window_size(1800, 1000) 
-driver.get("https://2ip.ru/")
+driver.get("https://www.whoscored.com/")
 #####################################################################################################
 
 time.sleep(15)

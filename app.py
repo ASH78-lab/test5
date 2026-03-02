@@ -37,7 +37,6 @@ chrome_options.add_experimental_option('useAutomationExtension', False)
 
 
 
-
 # Define proxy (ip:port)
 PROXY = "195.158.8.123:3128" 
 

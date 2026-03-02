@@ -35,14 +35,7 @@ chrome_options.add_experimental_option('useAutomationExtension', False)
 
 
 
-stealth(driver,
-        languages=["en-US", "en"],
-        vendor="Google Inc.",
-        platform="Win32",
-        webgl_vendor="Intel Inc.",
-        renderer="Intel Iris OpenGL Engine",
-        fix_hairline=True,
-        )
+
 
 
 # Define proxy (ip:port)
@@ -53,6 +46,16 @@ chrome_options.add_argument(f'--proxy-server={PROXY}')
 # Initialize driver with options
 driver = webdriver.Chrome(options=chrome_options)
 driver.set_window_size(1800, 1000) 
+
+stealth(driver,
+        languages=["en-US", "en"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+        )
+
 driver.get("https://www.whoscored.com/")
 #####################################################################################################
 

@@ -113,12 +113,12 @@ data=[]
 
 
 for i in link_preview:
-a=i.get_attribute('href')
-for b in asd2:
-  if b in a:
-      asd5.append(a)
-  else:
-      pass
+        a=i.get_attribute('href')
+        for b in asd2:
+          if b in a:
+              asd5.append(a)
+          else:
+              pass
 time.sleep(2)
 for i in asd5:
         driver.get(i) 
